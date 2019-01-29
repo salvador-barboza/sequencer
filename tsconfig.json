@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "lib": [
+      "dom",
+      "es6"
+    ],
+    "noImplicitAny": true,
+    "module": "esnext",
+    "sourceMap": true,
+    "noLib": false,
+    "jsx": "react",
+    "target": "es6",
+    "rootDir": "src",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+  },
+  "include": [
+    "src"
+  ]
+}

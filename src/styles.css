@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100vw;  
+}
+
+.stepper {
+  background-color: #f0f0f0;
+  height: 30px;
+  width: calc(100% - 120px);
+  margin: 60px;
+  display: flex;  
+}
+
+.step {
+  flex: 1 0 auto;
+  border-right: 1px solid #d6d6d6;
+}
+.step.on {
+  background-color: #d2d2d2;
+}
+
+.step.seek {
+  background-color: fuchsia;
+}
