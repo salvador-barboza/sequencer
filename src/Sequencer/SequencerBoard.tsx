@@ -1,31 +1,38 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 interface Props {
   activeStep: number, 
-  onStepClicked: (index: number) => void
+  stepState: string[],
+  stateChanged: (newState: string[]) => void,
+  samples: string[]
 }
 
-const SequencerBoard = (props: Props) => {
-  const [step, setStep] =  useState(Array(16).fill(false))
-  return (
-  <div className="stepper">
-    {step.map((s, index) => 
-      <div 
-        onClick={() => {
-          props.onStepClicked(index)
-          step[index] = !step[index]
-          setStep(step)
-          console.log(step)
-        }}
-        className={`
-          step 
-          ${s ? 'on' : ''}
-          ${props.activeStep === index ? 'seek' : ''}
-        `} 
-      />
-    )}
-  </div>
-)
-    }
+function swapArrayValue<T>(array: T[], index: number, value: T) {
+  const arr = array.slice()
+  arr[index] = value
+  return arr
+}
+
+const SequencerBoard = ({ 
+  stepState,
+  activeStep, 
+  stateChanged,
+  samples
+}: Props) => (
+  <div className="stepper-container">
+  {samples.map(sampleName => (
+    <div className="stepper">
+    {stepState.map((activeNote, index) => 
+    <div 
+      onClick={() => stateChanged(swapArrayValue(stepState, index, stepState[index] == sampleName ? null : sampleName))}
+      className={`
+        step 
+        ${activeNote === sampleName ? 'on' : ''}
+        ${activeStep === index ? 'seek' : ''}
+      `} 
+    /> )}
+    </div>
+    ))}
+</div>)
 
 export default SequencerBoard

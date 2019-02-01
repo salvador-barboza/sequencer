@@ -2,6 +2,11 @@ const path = require('path');
 
 module.exports = {
   entry: './src/index.tsx',  
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 9000
+  },
   devtool: "inline-source-map",
   resolve: {
     extensions: [ '.ts', '.tsx', '.js', '.jsx' ]

@@ -6,12 +6,16 @@ body, html {
   width: 100vw;  
 }
 
+.stepper-container {
+  margin: 60px;
+}
+
 .stepper {
   background-color: #f0f0f0;
   height: 30px;
   width: calc(100% - 120px);
-  margin: 60px;
   display: flex;  
+  border-bottom: #d2d2d2;
 }
 
 .step {
